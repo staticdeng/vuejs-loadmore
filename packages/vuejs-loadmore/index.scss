@@ -1,0 +1,44 @@
+@import '../style/var';
+.vuejs-loadmore {
+  overflow: hidden;
+  user-select: none;
+}
+
+.vuejs-refresh {
+  &-track {
+    position: relative;
+    height: 100%;
+    transition-property: transform;
+  }
+
+  &-head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: $refresh-head-height;
+    overflow: hidden;
+    color: $refresh-head-text-color;
+    font-size: $refresh-head-font-size;
+    text-align: center;
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.vuejs-loadmore {
+  &-loading,
+  &-finished-text,
+  &-error-text {
+    color: $loadmore-text-color;
+    font-size: $loadmore-text-font-size;
+    line-height: $loadmore-text-line-height;
+    text-align: center;
+  }
+
+  &-placeholder {
+    height: 0;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,23 @@
+$gray-1: #646566;
+$gray-2: #323233;
+$font-size-xs: 10px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 20px;
+// refresh
+$refresh-head-height: 50px;
+$refresh-head-font-size: $font-size-md;
+$refresh-head-text-color: $gray-1;
+// loadmore
+$loadmore-text-color: $gray-1;
+$loadmore-text-font-size: $font-size-md;
+$loadmore-text-line-height: 40px;
+// icon
+$padding-base: 4px;
+$loading-spinner-color: $gray-2;
+$loading-spinner-size: $font-size-lg;
+$loading-spinner-animation-duration: 0.9s;
+$padding-xs: $padding-base * 2;
+$loading-text-color: $gray-1;
+$loading-text-font-size: $font-size-md;
+
