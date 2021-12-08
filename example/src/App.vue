@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import VueLoadmore from '../../packages/index';
+// import VueLoadmore from '../../packages/index';
 
 export default {
   name: 'app',
-  components: {
-    VueLoadmore,
-  },
+  // components: {
+  //   VueLoadmore,
+  // },
   data() {
     return {
       list: [],
