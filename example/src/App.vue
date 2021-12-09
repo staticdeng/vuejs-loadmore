@@ -10,6 +10,7 @@
         :on-loadmore="onLoad"
         :finished="finished"
         :error.sync="error"
+        ref="loadmoreRef"
       >
         <ul class="list-ul">
           <li class="list-li" v-for="(item, index) of list" :key="item">{{ language === 'Chinese' ? '测试数据' : 'This is data' }} {{ index + 1 }}</li>
@@ -30,32 +31,51 @@ export default {
   data() {
     return {
       list: [],
-      loading: false,
+      page: 1,
       finished: false,
       error: false,
       language: 'Chinese'
     };
   },
   methods: {
+    initData() {
+      this.list = [];
+      this.page = 1;
+      this.finished = false;
+      this.error = false;
+    },
     onRefresh(done) {
+      this.initData();
+      this.fetch();
+
       done();
+      // 如果请求数据撑不起整个页面，可以手动调用checkSroll
+      setTimeout(() => {
+        this.$refs.loadmoreRef.checkSroll();
+      }, 1500);
     },
 
     onLoad(done) {
-      for (let i = 0; i < 10; i++) {
-        this.list.push(this.list.length + 1);
-      }
-
-      if (this.list.length == 30) {
-        this.error = true;
-      }
-      // 数据全部加载完成
-      if (this.list.length >= 100) {
+      if (this.page <= 10) {
+        this.fetch();
+      } else {
+        // all data loaded
         this.finished = true;
+      }
+      if (this.page === 3) {
+        this.error = true;
       }
       
       done();
     },
+
+    fetch() {
+      for (let i = 0; i < 10; i++) {
+        this.list.push(this.list.length + 1);
+      }
+      this.page++;
+    },
+
     changeLanguage() {
       this.language = this.language === 'Chinese' ? 'English' : 'Chinese';
     }
@@ -76,7 +96,7 @@ export default {
   // height: 500px;
 }
 .loadmore-head {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
