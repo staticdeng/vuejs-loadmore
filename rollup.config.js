@@ -3,6 +3,7 @@ import vue from 'rollup-plugin-vue';
 import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import babel from 'rollup-plugin-babel';
+import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
 const pkg = require(path.resolve(__dirname, 'package.json'));
@@ -13,8 +14,10 @@ const getPlugins = () => {
       extensions: ['.vue', '.js']
     }),
     vue({
-      include: /\.vue$/
+      include: /\.vue$/,
+      normalizer: '~vue-runtime-helpers/dist/normalize-component.js'
     }),
+    commonjs(),
     postcss({
       plugins: [require('autoprefixer')],
       // 把 css 放到和js同一目录
