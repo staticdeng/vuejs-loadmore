@@ -21,7 +21,7 @@
 
       <!-- 上拉加载 -->
       <div class="vuejs-loadmore">
-        <div class="vuejs-loadmore-loading" v-if="innerLoading && !finished && !error">
+        <div class="vuejs-loadmore-loading" v-if="loadLoading && !finished && !error">
           <Loading>{{ loadingText }}</Loading>
         </div>
 
@@ -107,7 +107,7 @@ export default {
     onLoadmore: Function,
     immediateCheck: {
       type: Boolean,
-      default: true
+      default: false
     },
     loadOffset: {
       type: [Number, String],
@@ -135,7 +135,7 @@ export default {
       distance: 0, // 下拉距离
       duration: 0, // 动画时间
       scroller: null, // 滚动容器元素
-      innerLoading: false // loadmore loading
+      loadLoading: false // loadmore loading
     };
   },
 
@@ -145,6 +145,7 @@ export default {
     // 获取$el最近一个父级可滚动容器元素
     this.scroller = getScroller(this.$el);
 
+    // 是否立即检查
     if (this.immediateCheck) {
       this.checkSroll();
     }
@@ -166,7 +167,7 @@ export default {
   },
 
   watch: {
-    innerLoading: 'checkSroll',
+    loadLoading: 'checkSroll',
     finished: 'checkSroll'
   },
 
@@ -271,7 +272,7 @@ export default {
 
     checkSroll () {
       this.$nextTick(() => {
-        if (this.innerLoading || !this.onLoadmore || this.finished || this.error) {
+        if (this.loadLoading || !this.onLoadmore || this.finished || this.error) {
           return;
         }
 
@@ -297,7 +298,7 @@ export default {
         const isReachEdge = placeholderRect.bottom - scrollerRect.bottom <= loadOffset;
 
         if (isReachEdge) {
-          this.innerLoading = true;
+          this.loadLoading = true;
           this.timeout(() => this.onLoadmore(this.loadmoreDone), 500);
         }
       });
@@ -305,12 +306,12 @@ export default {
 
     clickErrorText () {
       this.$emit('update:error', false);
-      this.innerLoading = true;
+      this.loadLoading = true;
       this.timeout(() => this.onLoadmore(this.loadmoreDone), 500);
     },
 
     loadmoreDone () {
-      this.innerLoading = false;
+      this.loadLoading = false;
     }
 
   }

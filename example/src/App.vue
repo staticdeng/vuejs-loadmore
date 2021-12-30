@@ -37,6 +37,9 @@ export default {
       language: 'Chinese'
     };
   },
+  mounted() {
+    this.fetch();
+  },
   methods: {
     initData() {
       this.list = [];
@@ -70,7 +73,7 @@ export default {
     },
 
     fetch() {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 15; i++) {
         this.list.push(this.list.length + 1);
       }
       this.page++;

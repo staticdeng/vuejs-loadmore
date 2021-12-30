@@ -1,9 +1,13 @@
 # vuejs-loadmore
-[![Build Status](https://img.shields.io/github/workflow/status/staticdeng/vuejs-loadmore/Node.js%20CI)](https://github.com/staticdeng/vuejs-loadmore/actions)
+[![Npm Version](https://img.shields.io/npm/v/vuejs-loadmore)](https://www.npmjs.com/package/vuejs-loadmore) [![Build Status](https://img.shields.io/github/workflow/status/staticdeng/vuejs-loadmore/Node.js%20CI)](https://github.com/staticdeng/vuejs-loadmore/actions)
+
+[![NPM](https://nodei.co/npm/vuejs-loadmore.png)](https://nodei.co/npm/vuejs-loadmore/)
 
 A pull-down refresh and pull-up loadmore scroll component for Vue.js.
 
 Easy to use by providing simple api. Unlike other component libraries, it uses the browser itself to scroll instead of js, so it has a smaller code size but does not lose the user experience.
+
+**English** | [中文](./README.zh-CN.md)
 
 ## Preview
 [Online demo](https://staticdeng.github.io/vuejs-loadmore/)
@@ -46,7 +50,7 @@ The `on-refresh` and  `on-loadmore` will be Emitted when pull refresh or scroll 
 
 If you don't need refresh, only not to bind `on-refresh`.
 
-When the data request is completed, the data `finished` needs to be changed to true.
+When the data request is finished, the data of `finished` you can changed to true, then will show `finished-text`.
 
 ```js
 export default {
@@ -57,6 +61,9 @@ export default {
       pageSize: 10,
       finished: false
     };
+  },
+  mounted() {
+    this.fetch();
   },
   methods: {
     onRefresh(done) {
@@ -137,7 +144,7 @@ export default {
 | immediate-check | Whether to check loadmore position immediately after mounted | _boolean_ | `true` |
 | load-offset | The `on-loadmore` will be Emitted when the distance from the scroll bar to the bottom is less than the `load-offset` | _number \| string_ | `50` |
 | finished | Whether the data is loaded | _boolean_ | `false` |
-| error | Whether the data is loaded, the `on-loadmore` will be Emitted only when error text clicked, the `sync` modifier is needed | _boolean_ | `false` |
+| error | Whether the data is loaded error, the `on-loadmore` will be Emitted only when error text clicked, the `sync` modifier is needed | _boolean_ | `false` |
 | loading-text | The Text when loading in loaded | _string_ | `正在加载` |
 | finished-text | The Text when the data is loaded  | _string_ | `没有更多了` |
 | error-text | The Text when error loaded | _string_ | `请求失败，点击重新加载` |

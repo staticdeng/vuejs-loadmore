@@ -1,6 +1,6 @@
 {
   "name": "vuejs-loadmore",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A pull-down refresh and pull-up loadmore scroll component for Vue.js",
   "entry": "packages/index.js",
   "main": "lib/index.js",
