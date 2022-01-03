@@ -153,10 +153,10 @@ export default {
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
 | on-refresh | Will be Emitted when pull refresh | _function_ | - |
-| pulling-text | The Text when pulling in refresh | _string_ | `下拉刷新` |
-| loosing-text | The Text when loosing in refresh | _string_ | `释放刷新` |
-| loading-text | The Text when loading in refresh | _string_ | `正在刷新` |
-| success-text | The Text when loading success in refresh | _string_ | `刷新完成` |
+| pulling-text | The Text when pulling in refresh | _string_ | `Pull down to refresh` |
+| loosing-text | The Text when loosing in refresh | _string_ | `Loosing to refresh` |
+| loading-text | The Text when loading in refresh | _string_ | `Refreshing` |
+| success-text | The Text when loading success in refresh | _string_ | `Refresh success` |
 | show-success-text | Whether to show `success-text` | _boolean_ | `true` |
 | pull-distance | The distance to trigger the refresh status | _number \| string_ | `50` |
 | head-height | The height of the area of the refresh shows  | _number \| string_ | `50` |
@@ -166,9 +166,9 @@ export default {
 | load-offset | The `on-loadmore` will be Emitted when the distance from the scroll bar to the bottom is less than the `load-offset` | _number \| string_ | `50` |
 | finished | Whether the data is loaded | _boolean_ | `false` |
 | error | Whether the data is loaded error, the `on-loadmore` will be Emitted only when error text clicked, the `sync` modifier is needed | _boolean_ | `false` |
-| loading-text | The Text when loading in loaded | _string_ | `正在加载` |
-| finished-text | The Text when the data is loaded  | _string_ | `没有更多了` |
-| error-text | The Text when error loaded | _string_ | `请求失败，点击重新加载` |
+| loading-text | The Text when loading in loaded | _string_ | `Loading` |
+| finished-text | The Text when the data is loaded  | _string_ | `No more data` |
+| error-text | The Text when error loaded | _string_ | `Request failed, click to reload` |
 
 ### Methods
 
