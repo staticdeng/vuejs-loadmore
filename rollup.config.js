@@ -59,5 +59,6 @@ export default {
       }
     }
   ],
-  plugins: getPlugins()
+  plugins: getPlugins(),
+  external: ['vue']
 };
