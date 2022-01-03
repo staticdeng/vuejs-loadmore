@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="loadmore-head">
-      <div class="text">{{ language === 'Chinese' ? '下拉刷新上拉加载' : 'pull up and pull down' }}</div>
-      <div class="lan" @click="changeLanguage">{{ language === 'Chinese' ? 'English' : 'Chinese' }}</div>
+      <div class="text">{{ language === 'zh-CN' ? '下拉刷新上拉加载' : 'pull up and pull down' }}</div>
+      <div class="lan" @click="changeLanguage">{{ language === 'zh-CN' ? 'English' : 'Chinese' }}</div>
     </div>
     <div class="wrap">
       <vue-loadmore 
@@ -13,7 +13,7 @@
         ref="loadmoreRef"
       >
         <ul class="list-ul">
-          <li class="list-li" v-for="(item, index) of list" :key="item">{{ language === 'Chinese' ? '测试数据' : 'This is data' }} {{ index + 1 }}</li>
+          <li class="list-li" v-for="(item, index) of list" :key="item">{{ language === 'zh-CN' ? '测试数据' : 'This is data' }} {{ index + 1 }}</li>
         </ul>
       </vue-loadmore>
     </div>
@@ -22,7 +22,7 @@
 
 <script>
 // import VueLoadmore from '../../packages/index';
-
+import { locale } from '../../packages/index'
 export default {
   name: 'app',
   // components: {
@@ -34,7 +34,7 @@ export default {
       page: 1,
       finished: false,
       error: false,
-      language: 'Chinese'
+      language: 'en-US'
     };
   },
   mounted() {
@@ -80,7 +80,10 @@ export default {
     },
 
     changeLanguage() {
-      this.language = this.language === 'Chinese' ? 'English' : 'Chinese';
+      this.language = this.language === 'zh-CN' ? 'en-US' : 'zh-CN';
+      
+      // 切换语言
+      locale.use(this.language);
     }
   },
   destroyed() {

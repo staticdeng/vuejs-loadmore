@@ -34,6 +34,27 @@ import VueLoadmore from 'vuejs-loadmore';
 Vue.use(VueLoadmore);
 ```
 
+## Internationalization support
+
+Support Chinese zh-CN and English en-US, the default is zh-CN.
+
+```js
+import VueLoadmore from 'vuejs-loadmore';
+
+Vue.use(VueLoadmore, {
+  lang: 'en-US'
+})
+```
+
+You can also use `locale.use()` to specify the language.
+
+```js
+import VueLoadmore, { locale } from 'vuejs-loadmore';
+
+Vue.use(VueLoadmore);
+locale.use('en-US');
+```
+
 ## Usage
 
 ### Basic Usage

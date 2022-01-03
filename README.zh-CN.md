@@ -34,6 +34,27 @@ import VueLoadmore from 'vuejs-loadmore';
 Vue.use(VueLoadmore);
 ```
 
+## 国际化支持
+
+支持中文 zh-CN 和英文 en-US, 默认为 zh-CN。
+
+```js
+import VueLoadmore from 'vuejs-loadmore';
+
+Vue.use(VueLoadmore, {
+  lang: 'en-US'
+})
+```
+
+你也可以使用 `locale.use()` 指定语言。
+
+```js
+import VueLoadmore, { locale } from 'vuejs-loadmore';
+
+Vue.use(VueLoadmore);
+locale.use('en-US');
+```
+
 ## 用法
 
 ### 基础用法

@@ -1,9 +1,14 @@
 import Vue from 'vue'
-import VueLoadmore from '../../packages/index'
+import VueLoadmore, { locale } from '../../packages/index'
 import App from './App.vue'
 
 Vue.config.productionTip = false
-Vue.use(VueLoadmore)
+
+Vue.use(VueLoadmore, {
+  lang: 'en-US'
+})
+// Vue.use(VueLoadmore);
+// locale.use('en-US');
 
 new Vue({
   render: h => h(App),

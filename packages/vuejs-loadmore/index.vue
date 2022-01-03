@@ -22,15 +22,15 @@
       <!-- 上拉加载 -->
       <div class="vuejs-loadmore">
         <div class="vuejs-loadmore-loading" v-if="loadLoading && !finished && !error">
-          <Loading>{{ loadingText }}</Loading>
+          <Loading>{{ loadingText || t(`loadmore.loading`) }}</Loading>
         </div>
 
         <div class="vuejs-loadmore-finished-text" v-if="finished">
-          {{ finishedText }}
+          {{ finishedText || t(`loadmore.finished`) }}
         </div>
 
         <div @click="clickErrorText" class="vuejs-loadmore-error-text" v-if="error">
-          {{ errorText }}
+          {{ errorText || t(`loadmore.error`) }}
         </div>
 
         <div ref="placeholder" class="vuejs-loadmore-placeholder" />
@@ -47,6 +47,7 @@ import { TimeoutMixin } from '../mixins/timer';
 // utils
 import { preventDefault } from '../utils/event';
 import { getScroller, getScrollTop } from '../utils/scroll';
+import locale from '../locale';
 // Icon
 import Loading from '../icon';
 const TEXT_STATUS = ['pulling', 'loosing', 'refresh', 'success'];
@@ -72,20 +73,16 @@ export default {
     // 下拉刷新
     onRefresh: Function,
     pullingText: {
-      type: String,
-      default: '下拉刷新'
+      type: String
     },
     loosingText: {
-      type: String,
-      default: '释放刷新'
+      type: String
     },
     refreshText: {
-      type: String,
-      default: '正在刷新'
+      type: String
     },
     successText: {
-      type: String,
-      default: '刷新完成'
+      type: String
     },
     showSuccessText: {
       type: Boolean,
@@ -116,16 +113,13 @@ export default {
     finished: Boolean,
     error: Boolean,
     loadingText: {
-      type: String,
-      default: '正在加载'
+      type: String
     },
     finishedText: {
-      type: String,
-      default: '没有更多了'
+      type: String
     },
     errorText: {
-      type: String,
-      default: '请求失败，点击重新加载'
+      type: String
     }
   },
 
@@ -162,7 +156,8 @@ export default {
     },
     genStatus () {
       const { status } = this;
-      return TEXT_STATUS.indexOf(status) !== -1 ? this[`${status}Text`] : '';
+      const text = this[`${status}Text`] || locale.t(`refresh.${status}`);
+      return TEXT_STATUS.indexOf(status) !== -1 ? text : '';
     }
   },
 
@@ -172,6 +167,7 @@ export default {
   },
 
   methods: {
+    t: locale.t,
     checkPullStart (event) {
       // 父级滚动元素的滚动条在顶部位置
       this.ceiling = getScrollTop(this.scroller) === 0;
