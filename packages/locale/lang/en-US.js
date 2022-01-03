@@ -9,5 +9,5 @@ export default {
     loading: 'Loading',
     finished: 'No more data',
     error: 'Request failed, click to reload'
-  },
-}
+  }
+};

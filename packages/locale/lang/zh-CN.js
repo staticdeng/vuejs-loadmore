@@ -9,5 +9,5 @@ export default {
     loading: '正在加载',
     finished: '没有更多了',
     error: '请求失败，点击重新加载'
-  },
-}
+  }
+};
