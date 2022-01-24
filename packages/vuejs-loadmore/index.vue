@@ -1,5 +1,5 @@
 <template>
-  <div class="vuejs-loadmore">
+  <div class="vuejs-loadmore-wrap">
     <div
       ref="track"
       class="vuejs-refresh-track"
@@ -161,11 +161,6 @@ export default {
     }
   },
 
-  watch: {
-    loadLoading: 'checkSroll',
-    finished: 'checkSroll'
-  },
-
   methods: {
     t: locale.t,
     checkPullStart (event) {
@@ -291,9 +286,11 @@ export default {
         }
 
         const placeholderRect = this.$refs.placeholder.getBoundingClientRect();
-        const isReachEdge = placeholderRect.bottom - scrollerRect.bottom <= loadOffset;
+        const bottomDistance = placeholderRect.bottom - scrollerRect.bottom;
+        // placeholderRect在scrollerRect外面而不是里面(>0)，并且在底部位置(<= loadOffset)
+        const bottomReached = bottomDistance > 0 && bottomDistance <= loadOffset;
 
-        if (isReachEdge) {
+        if (bottomReached) {
           this.loadLoading = true;
           this.timeout(() => this.onLoadmore(this.loadmoreDone), 500);
         }

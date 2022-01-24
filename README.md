@@ -3,29 +3,29 @@
 
 [![NPM](https://nodei.co/npm/vuejs-loadmore.png)](https://nodei.co/npm/vuejs-loadmore/)
 
-A pull-down refresh and pull-up loadmore scroll component for Vue.js.
+一个Vue.js 的下拉刷新和上拉加载组件。
 
-Easy to use by providing simple api. Unlike other component libraries, it uses the browser itself to scroll instead of js, so it has a smaller code size but does not lose the user experience.
+通过提供简单的api易于使用。与其他组件库不同，它使用浏览器本身而不是js来作滚动容器，因此它的代码量更小，但不损失用户体验。
 
-**English** | [中文](./README.zh-CN.md)
+**中文** | [English](./README.en-US.md)
 
-## Preview
-[Online demo](https://staticdeng.github.io/vuejs-loadmore/)
+## 预览
+[在线demo](https://staticdeng.github.io/vuejs-loadmore/)
 
-You can also scan the following QR code to access the demo：
+也可以扫描以下二维码访问演示：
 
 <img src="https://user-images.githubusercontent.com/20060839/145163261-02025f86-ac87-4016-859f-15677a6d3cf7.png" width="220" height="220" >
 
-## Installation
+## 安装 & 使用
 
-#### Install the npm package
+#### 安装 npm 包
 
 ```bash
 # npm
 npm install vuejs-loadmore --save
 ```
 
-#### Import
+#### 全局导入
 
 ```js
 import Vue from 'vue';
@@ -34,9 +34,9 @@ import VueLoadmore from 'vuejs-loadmore';
 Vue.use(VueLoadmore);
 ```
 
-## Internationalization support
+## 国际化支持
 
-Support Chinese zh-CN and English en-US, the default is zh-CN.
+支持中文 zh-CN 和英文 en-US, 默认为 zh-CN。
 
 ```js
 import VueLoadmore from 'vuejs-loadmore';
@@ -46,7 +46,7 @@ Vue.use(VueLoadmore, {
 })
 ```
 
-You can also use `locale.use()` to specify the language.
+你也可以使用 `locale.use()` 指定语言。
 
 ```js
 import VueLoadmore, { locale } from 'vuejs-loadmore';
@@ -55,9 +55,9 @@ Vue.use(VueLoadmore);
 locale.use('en-US');
 ```
 
-## Usage
+## 用法
 
-### Basic Usage
+### 基础用法
 
 ```html
 <vue-loadmore 
@@ -67,11 +67,11 @@ locale.use('en-US');
   <div v-for="(item, i) of list" :key="i"></div>
 </vue-loadmore>
 ```
-The `on-refresh` and  `on-loadmore` will be Emitted when pull refresh or scroll to the bottom, you should need to execute the callback function `done()` after processing the data request. 
+`on-refresh` 和 `on-loadmore` 会在下拉刷新或滚动到底部时触发，需要在处理完数据请求后执行回调函数 `done()`。 
 
-If you don't need refresh, only not to bind `on-refresh`.
+如果你不需要刷新，只需要不绑定`on-refresh`。
 
-When the data request is finished, the data of `finished` you can changed to true, then will show `finished-text`.
+当数据请求完成后，你可以将`finished`的数据改为true，这样就会显示`没有更多了`。
 
 ```js
 export default {
@@ -116,7 +116,7 @@ export default {
 }
 ```
 
-### Load Error Info
+### 错误提示
 
 ```html
 <vue-loadmore 
@@ -152,36 +152,36 @@ export default {
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| on-refresh | Will be Emitted when pull refresh | _function_ | - |
-| pulling-text | The Text when pulling in refresh | _string_ | `Pull down to refresh` |
-| loosing-text | The Text when loosing in refresh | _string_ | `Loosing to refresh` |
-| loading-text | The Text when loading in refresh | _string_ | `Refreshing` |
-| success-text | The Text when loading success in refresh | _string_ | `Refresh success` |
-| show-success-text | Whether to show `success-text` | _boolean_ | `true` |
-| pull-distance | The distance to trigger the refresh status | _number \| string_ | `50` |
-| head-height | The height of the area of the refresh shows  | _number \| string_ | `50` |
-| animation-duration | Animation duration of the refresh | _number \| string_ | `200` |
-| on-loadmore | Will be Emitted when scroll to the bottom | _function_ | - |
-| immediate-check | Whether to check loadmore position immediately after mounted | _boolean_ | `true` |
-| load-offset | The `on-loadmore` will be Emitted when the distance from the scroll bar to the bottom is less than the `load-offset` | _number \| string_ | `50` |
-| finished | Whether the data is loaded | _boolean_ | `false` |
-| error | Whether the data is loaded error, the `on-loadmore` will be Emitted only when error text clicked, the `sync` modifier is needed | _boolean_ | `false` |
-| loading-text | The Text when loading in loaded | _string_ | `Loading` |
-| finished-text | The Text when the data is loaded  | _string_ | `No more data` |
-| error-text | The Text when error loaded | _string_ | `Request failed, click to reload` |
+| on-refresh | 顶部下拉触发 | _function_ | - |
+| pulling-text | 下拉显示文本 | _string_ | `下拉刷新` |
+| loosing-text | 释放显示文本 | _string_ | `释放刷新` |
+| loading-text | 正在刷新显示文本 | _string_ | `正在刷新` |
+| success-text | 刷新完成显示文本 | _string_ | `刷新完成` |
+| show-success-text | 是否显示`success-text` | _boolean_ | `true` |
+| pull-distance | 触发正在刷新状态的距离 | _number \| string_ | `50` |
+| head-height | 正在刷新显示区域的高度  | _number \| string_ | `50` |
+| animation-duration | 下拉刷新动画持续时间 | _number \| string_ | `200` |
+| on-loadmore | 滚动到底部触发 | _function_ | - |
+| immediate-check | 是否在mounted之后立即检查 | _boolean_ | `true` |
+| load-offset | 当滚动条到底部的距离小于 `load-offset` 时，会发出 `on-loadmore` | _number \| string_ | `50` |
+| finished | 数据是否加载完毕，改变为true，则会显示`finished-text` | _boolean_ | `false` |
+| error | 数据是否加载错误，`on-loadmore`只有在点击错误文本时才会触发，需要`sync`修饰符 | _boolean_ | `false` |
+| loading-text | 滚动到底部正在加载显示文本 | _string_ | `正在加载` |
+| finished-text | 滚动到底部加载完毕的显示文本  | _string_ | `没有更多了` |
+| error-text | 加载错误显示文本 | _string_ | `请求失败，点击重新加载` |
 
-### Methods
+### 方法
 
-Use ref to get List instance and call instance methods.
+使用 ref 获取 List 实例并调用实例方法。
 
-| Name  | Description           | Attribute | Return value |
-| ----- | --------------------- | --------- | ------------ |
-| checkScroll | Check scroll position | -         | -            |
+| Name  | Description           |
+| ----- | --------------------- |
+| checkScroll | 检查当前的滚动位置，若已滚动至底部，则会触发 `on-loadmore` |
 
 
-## Example
+## 例子
 
-You can see the demo for quickly understand how to use this package.
+查看demo以快速了解如何使用此包。
 
 ```bash
 git clone git@github.com:staticdeng/vuejs-loadmore.git
