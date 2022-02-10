@@ -27,6 +27,7 @@
 }
 
 .vuejs-loadmore {
+  height: $loadmore-text-line-height;
   &-loading,
   &-finished-text,
   &-error-text {
@@ -34,10 +35,5 @@
     font-size: $loadmore-text-font-size;
     line-height: $loadmore-text-line-height;
     text-align: center;
-  }
-
-  &-placeholder {
-    height: 0;
-    pointer-events: none;
   }
 }

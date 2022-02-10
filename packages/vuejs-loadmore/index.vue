@@ -20,7 +20,8 @@
       <slot></slot>
 
       <!-- 上拉加载 -->
-      <div class="vuejs-loadmore">
+      <div class="vuejs-loadmore" ref="placeholder">
+
         <div class="vuejs-loadmore-loading" v-if="loadLoading && !finished && !error">
           <Loading>{{ loadingText || t(`loadmore.loading`) }}</Loading>
         </div>
@@ -33,7 +34,6 @@
           {{ errorText || t(`loadmore.error`) }}
         </div>
 
-        <div ref="placeholder" class="vuejs-loadmore-placeholder" />
       </div>
     </div>
   </div>
@@ -47,6 +47,7 @@ import { TimeoutMixin } from '../mixins/timer';
 // utils
 import { preventDefault } from '../utils/event';
 import { getScroller, getScrollTop } from '../utils/scroll';
+import { throttle } from '../utils/throttle';
 import locale from '../locale';
 // Icon
 import Loading from '../icon';
@@ -62,7 +63,8 @@ export default {
         this.scroller = getScroller(this.$el);
       }
 
-      bind(this.scroller, 'scroll', this.checkSroll);
+      // scroll节流
+      bind(this.scroller, 'scroll', throttle(this.checkSroll, 200));
     }),
     TimeoutMixin
   ],
@@ -286,9 +288,8 @@ export default {
         }
 
         const placeholderRect = this.$refs.placeholder.getBoundingClientRect();
-        const bottomDistance = placeholderRect.bottom - scrollerRect.bottom;
-        // placeholderRect在scrollerRect外面而不是里面(>0)，并且在底部位置(<= loadOffset)
-        const bottomReached = bottomDistance > 0 && bottomDistance <= loadOffset;
+        // 取绝对值，placeholderRect在scrollerRect容器的正负loadOffset区间则达到底部
+        const bottomReached = Math.abs(placeholderRect.bottom - scrollerRect.bottom) <= loadOffset;
 
         if (bottomReached) {
           this.loadLoading = true;

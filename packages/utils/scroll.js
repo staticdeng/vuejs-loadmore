@@ -1,7 +1,7 @@
 // get nearest scroll element
 const overflowScrollReg = /scroll|auto/i;
 
-// 遍历父级返回最近一个可滚动的父级元素(overflow-y: auto的元素)，找不到则为window(不能为html,body)
+// 遍历父级返回最近一个可滚动的父级元素(overflow-y: scroll和auto的元素)，找不到则为window(不能为html,body)
 export function getScroller (el, root = window) {
   let node = el;
 
