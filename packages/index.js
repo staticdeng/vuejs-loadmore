@@ -1,5 +1,6 @@
 import VueLoadmore from './vuejs-loadmore/index';
 import './vuejs-loadmore/index.scss';
+import './icon/loading.scss';
 import locale from './locale/index';
 
 export default {

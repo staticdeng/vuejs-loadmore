@@ -28,4 +28,4 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run lint
-    - run: npm run lint-fix
+    - run: npm test

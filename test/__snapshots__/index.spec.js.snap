@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pull refresh 1`] = `
+<div
+  class="vuejs-loadmore-wrap"
+>
+  <div
+    class="vuejs-refresh-track"
+    style="transition-duration: 0ms; transform: translate3d(0, 20px, 0); webkit-transform: translate3d(0, 20px, 0);"
+  >
+    <div
+      class="vuejs-refresh-head"
+    >
+      <div
+        class="vuejs-refresh-text"
+      >
+        下拉刷新
+      </div>
+    </div>
+      
+    <div
+      class="vuejs-loadmore"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`pull refresh 2`] = `
+<div
+  class="vuejs-loadmore-wrap"
+>
+  <div
+    class="vuejs-refresh-track"
+    style="transition-duration: 0ms; transform: translate3d(0, 75px, 0); webkit-transform: translate3d(0, 75px, 0);"
+  >
+    <div
+      class="vuejs-refresh-head"
+    >
+      <div
+        class="vuejs-refresh-text"
+      >
+        释放刷新
+      </div>
+    </div>
+      
+    <div
+      class="vuejs-loadmore"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`pull refresh 3`] = `
+<div
+  class="vuejs-loadmore-wrap"
+>
+  <div
+    class="vuejs-refresh-track"
+    style="transition-duration: 200ms; transform: translate3d(0, 50px, 0); webkit-transform: translate3d(0, 50px, 0);"
+  >
+    <div
+      class="vuejs-refresh-head"
+    >
+      <div>
+        <div
+          class="vuejs-loading vuejs-loading-circular"
+        >
+          <span
+            class="vuejs-loading-spinner vuejs-loading-spinner-circular"
+          >
+            <svg
+              class="vuejs-loading-circular"
+              viewBox="25 25 50 50"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                fill="none"
+                r="20"
+              />
+            </svg>
+          </span>
+           
+          <span
+            class="vuejs-loading-text"
+          >
+            正在刷新
+          </span>
+        </div>
+      </div>
+    </div>
+      
+    <div
+      class="vuejs-loadmore"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
