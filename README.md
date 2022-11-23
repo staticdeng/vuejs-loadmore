@@ -155,14 +155,14 @@ export default {
 | on-refresh | 顶部下拉触发 | _function_ | - |
 | pulling-text | 下拉显示文本 | _string_ | `下拉刷新` |
 | loosing-text | 释放显示文本 | _string_ | `释放刷新` |
-| loading-text | 正在刷新显示文本 | _string_ | `正在刷新` |
+| refresh-text | 正在刷新显示文本 | _string_ | `正在刷新` |
 | success-text | 刷新完成显示文本 | _string_ | `刷新完成` |
 | show-success-text | 是否显示`success-text` | _boolean_ | `true` |
 | pull-distance | 触发正在刷新状态的距离 | _number \| string_ | `50` |
 | head-height | 正在刷新显示区域的高度  | _number \| string_ | `50` |
 | animation-duration | 下拉刷新动画持续时间 | _number \| string_ | `200` |
 | on-loadmore | 滚动到底部触发 | _function_ | - |
-| immediate-check | 是否在mounted之后立即检查 | _boolean_ | `true` |
+| immediate-check | 是否立即触发数据加载；默认是，否的话则自己定义触发数据加载时机 | _boolean_ | `true` |
 | load-offset | 当滚动条到底部的距离小于 `load-offset` 时，会发出 `on-loadmore` | _number \| string_ | `50` |
 | finished | 数据是否加载完毕，改变为true，则会显示`finished-text` | _boolean_ | `false` |
 | error | 数据是否加载错误，`on-loadmore`只有在点击错误文本时才会触发，需要`sync`修饰符 | _boolean_ | `false` |

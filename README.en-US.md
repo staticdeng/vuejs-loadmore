@@ -155,7 +155,7 @@ export default {
 | on-refresh | Will be Emitted when pull refresh | _function_ | - |
 | pulling-text | The Text when pulling in refresh | _string_ | `Pull down to refresh` |
 | loosing-text | The Text when loosing in refresh | _string_ | `Loosing to refresh` |
-| loading-text | The Text when loading in refresh | _string_ | `Refreshing` |
+| refresh-text | The Text when loading in refresh | _string_ | `Refreshing` |
 | success-text | The Text when loading success in refresh | _string_ | `Refresh success` |
 | show-success-text | Whether to show `success-text` | _boolean_ | `true` |
 | pull-distance | The distance to trigger the refresh status | _number \| string_ | `50` |

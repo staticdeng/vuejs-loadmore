@@ -282,12 +282,12 @@ export default {
         }
 
         const scrollerHeight = scrollerRect.bottom - scrollerRect.top;
-
-        if (!scrollerHeight) {
+        const placeholder = this.$refs.placeholder;
+        if (!scrollerHeight || !placeholder) {
           return false;
         }
 
-        const placeholderRect = this.$refs.placeholder.getBoundingClientRect();
+        const placeholderRect = placeholder.getBoundingClientRect();
         // 取绝对值，placeholderRect在scrollerRect容器的正负loadOffset区间则达到底部
         const bottomReached = Math.abs(placeholderRect.bottom - scrollerRect.bottom) <= loadOffset;
 
